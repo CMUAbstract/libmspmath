@@ -11,4 +11,4 @@ endif # TOOLCHAIN = clang
 override SRC_ROOT = ../../src
 
 override CFLAGS += \
-	-I$(SRC_ROOT)/src/include/libmspmath \
+	-I$(SRC_ROOT)/include/libmspmath \
