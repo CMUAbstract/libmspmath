@@ -4,7 +4,8 @@ OBJECTS = \
 	mult.o \
 	sqrt.o \
 
-ifeq ($(TOOLCHAIN),clang)
+ifeq ($(TOOLCHAIN),gcc)
+else
 OBJECTS += divmodhi3.o
 endif # TOOLCHAIN = clang
 
