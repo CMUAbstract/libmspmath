@@ -11,5 +11,10 @@ endif # TOOLCHAIN = clang
 
 override SRC_ROOT = ../../src
 
+ifeq ($(TOOLCHAIN),ticl)
 override CFLAGS += \
-	-I$(SRC_ROOT)/include/libmspmath \
+	--include_path="$(SRC_ROOT)/include/libmspmath"
+else
+override CFLAGS += \
+	-I$(SRC_ROOT)/include/libmspmath
+endif

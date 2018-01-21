@@ -5,10 +5,12 @@
 // argument type. But this case is more efficient and easier to implement than
 // a full 32-bit multiplication.
 
-#ifndef __clang__
+//#ifndef __clang__
+#ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wreturn-type"
 #endif
 
+#if defined(__clang__) || defined(__GNUC__)
 __attribute__((naked))
 uint32_t mult16(uint16_t a, uint16_t b)
 {
@@ -42,3 +44,4 @@ uint32_t mult16(uint16_t a, uint16_t b)
 #error Unsupported compiler.
 #endif
 }
+#endif

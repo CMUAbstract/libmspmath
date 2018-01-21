@@ -32,7 +32,7 @@ udivmodhi4 (unsigned short num, unsigned short den, short modwanted)
   unsigned short bit = 1;
   unsigned short res = 0;
 
-  while (den < num && bit && !(den & (1 << 15)))
+  while (den < num && bit && !(den & (unsigned short)(1 << 15)))
     {
       den <<= 1;
       bit <<= 1;
