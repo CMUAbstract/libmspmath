@@ -22,11 +22,14 @@
    a copy of the GCC Runtime Library Exception along with this program;
    see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
    <http://www.gnu.org/licenses/>.  */
-	 
+
 
 /* Emulate the division and modulus operation.  */
-/*
-unsigned short udivmodhi4 (unsigned short num, unsigned short den, short modwanted)
+// Added to quiet the compiler errors getting thrown by libgcc. It thinks it's
+// providing a working udivmodhi function, but it doesn't.
+#define udivmodhi4 myudivmodhi4
+
+unsigned short myudivmodhi4 (unsigned short num, unsigned short den, short modwanted)
 {
   unsigned short bit = 1;
   unsigned short res = 0;
@@ -51,7 +54,7 @@ unsigned short udivmodhi4 (unsigned short num, unsigned short den, short modwant
     return num;
   return res;
 }
-*/
+
 unsigned int divhi4 (unsigned int num, unsigned int den)
 {
   unsigned int bit = 1;
