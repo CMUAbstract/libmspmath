@@ -4,10 +4,7 @@ OBJECTS = \
 	mult.o \
 	sqrt.o \
 
-ifeq ($(TOOLCHAIN),gcc)
-#Added to suppress complaints from libgcc about mulsi2_f5
--mhwmult=none \
-else
+ifeq ($(TOOLCHAIN),clang)
 OBJECTS += divmodhi3.o
 endif # TOOLCHAIN = clang
 
