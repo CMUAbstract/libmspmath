@@ -3,7 +3,6 @@ LIB = libmspmath
 OBJECTS = \
 	mult.o \
 	sqrt.o \
-  divmodhi3.o \
 
 ifeq ($(TOOLCHAIN),gcc)
 #Added to suppress complaints from libgcc about mulsi2_f5
