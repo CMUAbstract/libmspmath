@@ -60,7 +60,7 @@ unsigned int divhi4 (unsigned int num, unsigned int den)
   unsigned int bit = 1;
   unsigned int res = 0;
 
-  while (den < num && bit && !(den & (1 << 31)))
+  while (den < num && bit && !(den & (1UL << 31)))
     {
       den <<= 1;
       bit <<= 1;
