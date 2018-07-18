@@ -1,9 +1,20 @@
 LIB = libmspmath
 
+
+OBJECTS = \
+	mult.o \
+	sqrt.o \
+
 ifeq ($(TOOL),)
   $(warning TOOL IS EMPTY)
 else
-  $(warning TOOL = ${TOOL})
+  $(warning libmspmath TOOL = ${TOOL})
+  ifeq ($(TOOL),gcc)
+    $(warning failure!)
+  else
+    $(warning success again!)
+    OBJECTS += divmodhi3.o
+  endif
 endif
 
 ifeq ($(TOOL),gcc)
@@ -15,13 +26,11 @@ else
   OBJECTS += divmodhi3.o
 endif # TOOLCHAIN = clang
 
-OBJECTS = \
-	mult.o \
-	sqrt.o \
-
 ifneq ($(DIVMOD),)
   OBJECTS += \
   divmodhi3.o
+else
+  $(warning DIVMOD Has value)
 endif
 
 $(info toolchain = ${TOOLCHAIN}, tool = ${TOOL})
